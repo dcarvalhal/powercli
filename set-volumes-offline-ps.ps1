@@ -19,7 +19,7 @@ $VolNames = @(
 Connect-EqlGroup -GroupName $GroupName -GroupAddress $GroupAddress -Credential (Get-credential)
 
 Foreach ($VolName in $VolNames) {
-    Set-EqlVolume -VolumeName $VolName -OnlineStatus online
+    Set-EqlVolume -VolumeName $VolName -OnlineStatus offline
     } 
 
 Disconnect-EqlGroup -GroupAddress $GroupAddress
