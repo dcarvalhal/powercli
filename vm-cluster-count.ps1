@@ -1,11 +1,11 @@
+write-host "################################################" -ForegroundColor "Blue"
 $vmsblue = get-vm -Location Blue | Select-Object Name, Folder
 
-write-host "################################################" -ForegroundColor "Blue"
 $vmsblue | Sort-Object Folder
 
+write-host "################################################" -ForegroundColor "Blue"
 $vmsProduction1 = get-vm -Location ClusterProduction1 | Select-Object Name, Folder
 
-write-host "################################################" -ForegroundColor "Blue"
 $vmsProduction1 | Sort-Object Folder
 
 write-host "################################################" -ForegroundColor "Blue"
