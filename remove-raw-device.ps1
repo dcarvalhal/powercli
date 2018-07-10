@@ -13,9 +13,9 @@ $vms = @(
 $disk =@()
 $disk += Get-HardDisk -VM $vms | where {$_.DiskType -eq "RawPhysical"} | Select Parent, Name, DiskType, Filename
 $disk
-
+$disk.count
 #Remove dos discos Raw Device
-get-harddisk -VM $vms | where {$_.DiskType -eq "RawPhysical"}| Remove-HardDisk -DeletePermanently -Confirm:$false
+#get-harddisk -VM $vms | where {$_.DiskType -eq "RawPhysical"}| Remove-HardDisk -DeletePermanently -Confirm:$false
 
 #Desconectar do vCenter Server de Produção
 Disconnect-VIServer $Global:DefaultVIServers -Confirm:$false
