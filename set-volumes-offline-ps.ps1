@@ -12,9 +12,8 @@ $VolNames = @(
     "Raw-DC1B4GIMDBP02-Data",
     "Raw-DC1B4GIMDBP02-Logs",
     "Raw-DC1B4TESOUDBP01-Data",
-    "Raw-DC1B4TESOUDBP01-Logs",
-    "Raw-SCCHIB4VUM-01-Bkp-01"
-			 );
+    "Raw-DC1B4TESOUDBP01-Logs"
+    		 );
 
 Connect-EqlGroup -GroupName $GroupName -GroupAddress $GroupAddress -Credential (Get-credential)
 
