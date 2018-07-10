@@ -23,5 +23,5 @@ Disconnect-VIServer $Global:DefaultVIServers -Confirm:$false
 
 $smtpserver = "smtp.buy4sc.local"
 $from = "operacao-devices@stone.com.br"
-$body = $disk
-Send-MailMessage -SMTPServer $smtpserver -To "rconte@stone.com.br","dcarvalhal@stone.com.br" -From $from -Subject "GMUD" -Body $body -Port 587 -Credential $Credential
+$body = "$disk"
+Send-MailMessage -SMTPServer $smtpserver -To "rconte@stone.com.br","dcarvalhal@stone.com.br" -From $from -Subject "GMUD" -Body $body -Port 587
