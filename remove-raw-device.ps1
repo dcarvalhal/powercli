@@ -9,19 +9,15 @@ $vms = @(
     "DC1B4DB03P01",
     "DC1B4TESOUDBP01"
     	 );
-
 #Lista os discos Raw Device dos servidores impactados na mudança
+
 $disk =@()
 $disk += Get-HardDisk -VM $vms | where {$_.DiskType -eq "RawPhysical"} | Select Parent, Name, DiskType, Filename
 $disk
 $disk.count
-#Remove dos discos Raw Device
-#get-harddisk -VM $vms | where {$_.DiskType -eq "RawPhysical"}| Remove-HardDisk -DeletePermanently -Confirm:$false
+Remove dos discos Raw Device
+get-harddisk -VM $vms | where {$_.DiskType -eq "RawPhysical"}| Remove-HardDisk -DeletePermanently 
 
 #Desconectar do vCenter Server de Produção
 Disconnect-VIServer $Global:DefaultVIServers -Confirm:$false
 
-$smtpserver = "smtp.buy4sc.local"
-$from = "operacao-devices@stone.com.br"
-$body = "$disk"
-Send-MailMessage -SMTPServer $smtpserver -To "rconte@stone.com.br","dcarvalhal@stone.com.br" -From $from -Subject "GMUD" -Body $body -Port 587
