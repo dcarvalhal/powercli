@@ -15,6 +15,9 @@ $disk =@()
 $disk += Get-HardDisk -VM $vms | where {$_.DiskType -eq "RawPhysical"} | Select Parent, Name, DiskType, Filename
 $disk
 $disk.count
+
+$disk > RawDisks.txt
+
 Remove dos discos Raw Device
 get-harddisk -VM $vms | where {$_.DiskType -eq "RawPhysical"}| Remove-HardDisk -DeletePermanently 
 
