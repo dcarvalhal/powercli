@@ -1,0 +1,8 @@
+- name: Verify offline disk
+  hosts: windows
+  tasks:
+    - name: Check Raw disk offline
+      win_shell: |
+         get-disk | where {($_.FriendlyName -like "*EQLOGIC*") -and ($_.OperationalStatus -like "*Offline")}
+      register: output
+    - debug: var=output.stdout_lines
