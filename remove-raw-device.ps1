@@ -1,4 +1,5 @@
 #Conectar no vCenter Server de Produção
+& 'C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\Scripts\Initialize-PowerCLIEnvironment.ps1'
 Connect-Viserver 172.17.35.35
 
 $vms = @( 
