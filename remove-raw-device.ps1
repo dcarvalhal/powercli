@@ -1,21 +1,22 @@
 #Conectar no vCenter Server de Produção
 & 'C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\Scripts\Initialize-PowerCLIEnvironment.ps1'
 $vicredential = Get-Credential
-Connect-VIServer 172.17.35.35 -Credential $vicredential
+Connect-VIServer 192.168.1.61 -Credential $vicredential
 
 $vms = @( 
-    "DC1B4GIMDBP02",
-    "DC1B4DB05P01",
-    "DC1B4DB03P01",
-    "DC1B4TESOUDBP01"
+    "VM01",
+    "VM02",
+    "VM03",
+    "VM04"
     	 );
-#Lista os discos Raw Device dos servidores impactados na mudança
+#Lista os discos Raw Device dos servidores impactados.
 
 $disk =@()
 $disk += Get-HardDisk -VM $vms | where {$_.DiskType -eq "RawPhysical"} | Select Parent, Name, DiskType, Filename
 $disk
 $disk.count
 
+#Output da execução
 $disk > RawDisks.txt
 
 Remove dos discos Raw Device
