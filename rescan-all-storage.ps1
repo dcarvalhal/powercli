@@ -10,5 +10,3 @@ foreach ($esxi in $esxis)
     	Get-ScsiLun -VMHost $esxi -RescanVmfs
     	Start-Sleep -s 30
 	}
-# Desconecta do vCenter Server #
-Disconnect-VIServer -confirm:$false
