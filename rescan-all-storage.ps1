@@ -5,8 +5,8 @@ $esxis = get-vmhost | Sort-Object name
 foreach ($esxi in $esxis)
 	{
 	write-host "Scan all HBAs on "$esxi
-	Get-ScsiLun -VMHost $esxi -RescanAllHba
+	get-VMHostStorage -VMHost $esxi -RescanAllHba
     	write-host "Rescan VMFS on "$esxi
-    	Get-ScsiLun -VMHost $esxi -RescanVmfs
+    	get-VMHostStorage -VMHost $esxi -RescanVmfs
     	Start-Sleep -s 30
 	}
