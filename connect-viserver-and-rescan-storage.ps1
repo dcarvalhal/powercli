@@ -6,4 +6,4 @@ write-host -f Green "$(Get-Date): Executando o rescan nas HBAs e o rescan dos vm
 & 'C:\Users\dcarv\Documents\GitHub\powercli\rescan-all-storage.ps1'
 
 Write-host -f Blue "$(Get-Date) : Fim do processo de rescan"
-Disconnect-VIServer $sessions -Confirm:$false
+Disconnect-VIServer -Confirm:$false
