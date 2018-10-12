@@ -11,5 +11,6 @@ $vms = get-vm
     $info.MemReservation = $infovms.Config.MemoryAllocation.Reservation
     $report += $info
 }
+
 $report | export-csv -Path "C:\Users\daniel.carvalhal\Documents\scripts-output\vms-hotadd-reservation.csv"
 $report
