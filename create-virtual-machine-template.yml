@@ -1,0 +1,34 @@
+---
+- name: Create a VM from a template
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Clone a virtual machine from Template and customize
+    vmware_guest:
+      hostname: "vcenter02.lab.home"
+      username: "administrator@vsphere.local"
+      password: "!#123qwE"
+      validate_certs: False
+      folder: /Templates/
+      datacenter: Home
+      cluster: CLS01
+      name: openstack02
+      state: poweredon
+      template: template01
+      hardware:
+        memory_mb: 1024
+        num_cpus: 2
+        scsi: paravirtual
+        hotadd_cpu: True
+        hotremove_cpu: True
+        hotadd_memory: False
+        version: 13
+      networks:
+      - name: mgmt
+        ip: 192.168.1.70
+        netmask: 255.255.255.0
+        gateway: 192.168.1.1
+        dns_servers:
+        - 192.168.1.55
+        type: static
